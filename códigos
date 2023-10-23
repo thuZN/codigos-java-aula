@@ -22,3 +22,26 @@ public class Principal {
 
 
 
+public class produto {
+    String nome;
+    double preco;
+    int qtd;
+
+    double TotalValorEstoque() {
+        return preco * qtd;
+    }
+
+    void addProduto(int qtd) {
+        this.qtd += qtd;
+    }
+
+    void removerProduto(int qtd) {
+        this.qtd -= qtd;
+    }
+
+
+
+
+}
+
+
