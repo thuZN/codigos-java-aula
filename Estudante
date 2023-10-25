@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Principal {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Estudante estudante = new Estudante();
+
+        System.out.println("Entre com as informações do estudante");
+        System.out.println("Nome: ");
+        estudante.nome = sc.nextLine();
+        System.out.println("Nota 1: ");
+        estudante.nota1 = sc.nextDouble();
+        System.out.println("Nota 2: ");
+        estudante.nota2 = sc.nextDouble();
+        System.out.println("Nota 3: ");
+        estudante.nota3 = sc.nextDouble();
+
+        System.out.printf("Nota Final: %2.f%n " , estudante.notaFinal());
+
+        if (estudante.notaFinal() < 70.0){
+            System.out.println("Reprovado");
+            System.out.printf("Falta %2.f pontos%n" , estudante.verificador());
+        } else {
+            System.out.println("Aprovado");
+        }
+
+    }
+
+}
+}
+
+
+
+
+public class Estudante {
+    String nome;
+    double nota1;
+    double nota2;
+    double nota3;
+
+    double notaFinal(){
+        return nota1 + nota2 + nota3;
+    }
+
+    double verificador() {
+        if (notaFinal() < 70.0) {
+            return 70.0 - notaFinal();
+        }else {
+            return 0.0;
+        }
+    }
+}
